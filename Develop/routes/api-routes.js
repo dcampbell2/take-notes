@@ -4,6 +4,8 @@ const dbJson = "../db/db.json";
 
 const db = require("../db/db.json")
 
+let id = 0;
+
 // Need 3 Routes
 
 module.exports = function(app){
@@ -21,7 +23,13 @@ app.get('/api/notes', (req, res) => {
 
 app.post("/api/notes", (req, res) => {
 
-    db.push(req.body)
+    let newNote = {
+        title: req.body.title,
+        text: req.body.text,
+        id: id++
+    }
+
+    db.push(newNote)
 
     console.log(db)
 
