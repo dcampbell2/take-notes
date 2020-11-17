@@ -1,5 +1,8 @@
+const fs = require("fs");
 const path = require("path");
 const dbJson = "../db/db.json";
+
+const db = require("../db/db.json")
 
 // Need 3 Routes
 
@@ -10,15 +13,20 @@ module.exports = function(app){
 
 app.get('/api/notes', (req, res) => {
 
-    res.sendFile(path.join(__dirname, dbJson))
+    res.json(db)
     
  });
 
 // Route 2: post route for /api/notes
 
-// app.post("/api/notes", (req, res) => {
+app.post("/api/notes", (req, res) => {
 
-// })
+    db.push(req.body)
+
+    console.log(db)
+
+    return res.json(db)
+})
 
 // Route 3: delete route for /notes/:id
 
