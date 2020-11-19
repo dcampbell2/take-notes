@@ -10,8 +10,8 @@ app.use(express.json());
 app.use(express.static("public" , {index:false, extensions:['json']}));
 
 
-require("./routes/api-routes")(app);
-require("./routes/html-routes")(app);
+require("./Develop/routes/api-routes")(app);
+require("./Develop/routes/html-routes")(app);
 
 
 app.listen(PORT, () =>{
