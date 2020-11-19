@@ -1,5 +1,7 @@
 const path = require("path")
 
+const db = require("../db/db.json")
+
 // Routes
 
 module.exports = function(app){

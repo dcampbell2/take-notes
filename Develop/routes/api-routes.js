@@ -2,13 +2,13 @@ const fs = require("fs");
 const path = require("path");
 const dbJson = "../db/db.json";
 
-const db = require("../db/db.json");
-
 let id = 0;
 
 // Need 3 Routes
 
 module.exports = function (app) {
+
+  const db = require("../db/db.json")
   // Route 1: get route for /api/notes endpoint
 
   app.get("/api/notes", (req, res) => {
@@ -37,8 +37,6 @@ module.exports = function (app) {
     console.log(activeNote);
 
     let result = db.filter(note => note.id != activeNote)
-
-    // result.forEach(deleted => deleted.id = result.indexOf(deleted));
 
     console.log(result);
 
